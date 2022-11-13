@@ -35,9 +35,10 @@
 #  Closes the network connection
 
 import json
-import urllib
+import urllib.parse
 import requests
 from threading import Thread
+
 from sseclient import SSEClient
 
 close_it = False
@@ -96,7 +97,6 @@ def loop(channel, user, handler):
 
 
 def connect(channel, user, handler):
-    print("Connection in Progress")
     Thread(target=loop, args=(channel, user, handler)).start()
 
 
